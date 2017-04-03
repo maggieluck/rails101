@@ -40,6 +40,11 @@ class GroupsController < ApplicationController
     redirect_to groups_path, alert: "Group deleted"
   end
 
+  def show
+    @group = Group.find(params[:id])
+    @posts = @group.posts
+  end
+
   private
 
   def find_group_and_check_permission
